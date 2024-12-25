@@ -1,6 +1,8 @@
-# JKFLIPFLOP-USING-IF-ELSE
+### NAME :VIGNESH P
+### REG NO:24900856
+### EXPERIMENT: JKFLIPFLOP-USING-IF-ELSE
 
-**AIM:** 
+**AIM:**  
 
 To implement  JK flipflop using verilog and validating their functionality using their functional tables
 
@@ -33,47 +35,44 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
 **Procedure**
+1 Type the programe in Quartus software.
+2 Compile and run the programe.
+3 Generate the RTL schematic and save the logic diagram.
+4 Create nodes for inputs and outputs to generate the timing diagram.
+5 For different inputs combinations generate the timing diagram.
 
-/* write all the steps invloved 
-1. Type the program in Quartus software.
-2. Compile and run the program.
-3. Generate the RTL schematic and save the logic diagram.
-4. Create nodes for inputs and outputs to generate the timing diagram.
-5. For different input combinations generate the timing diagram.*/
 
+/* write all the steps invloved */
 **PROGRAM**
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming.
-Developed by: p.vignesh
-RegisterNumber: 24900856
-*/
-```
-module exp7(j, k, clk, q, qbar);
-input j, k, clk;
-output reg q, qbar;
-always @(posedge clk) begin
-case ({j, k})
-2'b00: q <= q;
-
-RTL LOGIC FOR FLIPFLOPS
-TIMING DIGRAMS FOR FLIP FLOPS
-2'b01: q <= 1'b0;
-2'b10: q <= 1'b1;
-2'b11: q <= ~q;
-endcase
-qbar <= ~q;
+"""
+module jkff(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q,qbar;
+initial 
+begin
+q=1'b0;
+q=1'b1;
+end 
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
 end
 endmodule
-```
+"""
+
 
 
 **RTL LOGIC FOR FLIPFLOPS**
 
-![image](https://github.com/user-attachments/assets/245ee789-106a-45ee-a84a-d0ed695a3e1a)
+![image](https://github.com/user-attachments/assets/ac0861d7-fdd2-4ab3-922b-bee29043e8de)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![Screenshot 2024-12-17 134537](https://github.com/user-attachments/assets/4a5f4008-e16a-41e2-ac41-0125a88da2b3)
+
+![image](https://github.com/user-attachments/assets/638a7723-06f5-4ee1-85f2-3a148be76f49)
+
 
 **RESULTS**
 
-Hence the JK FlipFlop using verilog and validating their functionality using their functional tables is verified
+Thus the JK flipflop using verilog and validating their functionality using their functional tables is implemented.
